@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
   watchtower:
     container_name: "{{ service_cfg.name }}"
-    image: "containrrr/watchtower:{{ service_cfg.version }}"
+    image: "nickfedor/watchtower:{{ service_cfg.version }}"
     restart: unless-stopped
     environment:
       TZ: "{{ timezone }}"             # https://containrrr.dev/watchtower/arguments/#time_zone
