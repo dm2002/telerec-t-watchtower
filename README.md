@@ -1,5 +1,5 @@
 # telerect-t-watchtower
-Watchtower container for Telerec't
+Watchtower container for Telerec't modified by dm2002 because the original containerr/watchtower is no longer maintend. Switched to nickfedor/watchtower
 
 * [github](https://github.com/containrrr/watchtower) 
 * [docs](https://containrrr.dev/watchtower/)
