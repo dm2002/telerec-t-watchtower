@@ -5,13 +5,13 @@ services:
     restart: unless-stopped
     command: --schedule "0 0 4 * * *"
     environment:
-      TZ: "{{ timezone }}"             # https://containrrr.dev/watchtower/arguments/#time_zone
-      WATCHTOWER_CLEANUP: "true"       # https://containrrr.dev/watchtower/arguments/#cleanup
-      WATCHTOWER_LABEL_ENABLE: "true"  # https://containrrr.dev/watchtower/arguments/#filter_by_enable_label
+      TZ: "{{ timezone }}"             # https://watchtower.nickfedor.com/latest/configuration/
+      WATCHTOWER_CLEANUP: "true"       # https://watchtower.nickfedor.com/latest/configuration/
+      WATCHTOWER_LABEL_ENABLE: "true"  # https://watchtower.nickfedor.com/latest/configuration/arguments/#enable_label_filter
       WATCHTOWER_INCLUDE_RESTARTING: "true"
       WATCHTOWER_INCLUDE_STOPPED: "true"
       WATCHTOWER_REVIVE_STOPPED: "true"
-#      WATCHTOWER_POLL_INTERVAL: "{{ service_cfg.poll_interval }}"  # https://containrrr.dev/watchtower/arguments/#poll_interval
+#      WATCHTOWER_POLL_INTERVAL: "{{ service_cfg.poll_interval }}"  # https://watchtower.nickfedor.com/latest/configuration/
 {% if service_cfg.http_token != "" %}
       WATCHTOWER_HTTP_API_UPDATE: "true"
       WATCHTOWER_HTTP_API_TOKEN: "{{ service_cfg.http_token }}"
