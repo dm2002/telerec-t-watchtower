@@ -13,8 +13,8 @@ curl -H "Authorization: Bearer {{ http_token }}" https://watchtower.example.com/
 ```
 
 ## Service config
-  * `version`: Which version of [containrrr/watchtower](https://hub.docker.com/r/containrrr/watchtower) to use (default = latest)
-  * `poll_interval`: Poll interval (in seconds). This value controls how frequently watchtower will poll for new images. See [docs](https://containrrr.dev/watchtower/arguments/#poll_interval)
-  * `http_token`: Api token for sending http requests to watchtower (see [docs](https://containrrr.dev/watchtower/http-api-mode/)). HTTP API mode is only activated if this token is non-empty. 
+  * `version`: Which version of [nickfedor/watchtower](https://hub.docker.com/r/nickfedor/watchtower) to use (default = latest)
+  * `poll_interval`: Poll interval (in seconds). This value controls how frequently watchtower will poll for new images. See [docs](https://watchtower.nickfedor.com/v1.13.0/configuration/arguments/#poll_interval)
+  * `http_token`: Api token for sending http requests to watchtower (see [docs](https://watchtower.nickfedor.com/v1.13.0/configuration/arguments/#http_api_periodic_polls)). HTTP API mode is only activated if this token is non-empty. 
   * `telegram_bot_token`
   * `telegram_channel_id`
