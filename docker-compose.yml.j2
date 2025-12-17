@@ -3,6 +3,7 @@ services:
     container_name: "{{ service_cfg.name }}"
     image: "nickfedor/watchtower:{{ service_cfg.version }}"
     restart: unless-stopped
+    command: --schedule "0 0 4 * * *"
     environment:
       TZ: "{{ timezone }}"             # https://containrrr.dev/watchtower/arguments/#time_zone
       WATCHTOWER_CLEANUP: "true"       # https://containrrr.dev/watchtower/arguments/#cleanup
@@ -10,7 +11,7 @@ services:
       WATCHTOWER_INCLUDE_RESTARTING: "true"
       WATCHTOWER_INCLUDE_STOPPED: "true"
       WATCHTOWER_REVIVE_STOPPED: "true"
-      WATCHTOWER_POLL_INTERVAL: "{{ service_cfg.poll_interval }}"  # https://containrrr.dev/watchtower/arguments/#poll_interval
+#      WATCHTOWER_POLL_INTERVAL: "{{ service_cfg.poll_interval }}"  # https://containrrr.dev/watchtower/arguments/#poll_interval
 {% if service_cfg.http_token != "" %}
       WATCHTOWER_HTTP_API_UPDATE: "true"
       WATCHTOWER_HTTP_API_TOKEN: "{{ service_cfg.http_token }}"
@@ -23,5 +24,6 @@ services:
     volumes:
       - "{{ service_cfg.directory }}:/config"
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/etc/localtime:/etc/localtime:ro"
     labels: *base_labels
     networks: *base_networks
